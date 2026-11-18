@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pizarra colaborativa</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">✏️ Pizarra <span id="conn" class="pill off">desconectado</span></div>
+  <div class="tools" role="toolbar" aria-label="Herramientas">
+    <button data-tool="pen" class="tool active" title="Mano alzada (P)">✎</button>
+    <button data-tool="eraser" class="tool" title="Borrador de trazos (E)">🧽</button>
+    <button data-tool="rect" class="tool" title="Rectángulo (R)">▭</button>
+    <button data-tool="arrow" class="tool" title="Flecha (A)">→</button>
+    <button data-tool="text" class="tool" title="Texto (T)">T</button>
+    <button data-tool="pan" class="tool" title="Mover / paneo (H o espacio)">✋</button>
+  </div>
+  <div class="props">
+    <input type="color" id="color" value="#4f8cff" title="Color" />
+    <input type="range" id="width" min="1" max="24" value="3" title="Grosor" />
+    <button id="undo" title="Deshacer lo mío (Ctrl+Z)">↩</button>
+    <button id="redo" title="Rehacer lo mío (Ctrl+Y)">↪</button>
+    <button id="zoomOut" title="Zoom −">−</button>
+    <span id="zoomLbl">100%</span>
+    <button id="zoomIn" title="Zoom +">+</button>
+    <button id="zoomReset" title="Zoom 100% (0)">1:1</button>
+    <button id="clear" title="Limpiar pizarra (para todos)">🗑</button>
+  </div>
+  <div class="me">
+    <input id="name" maxlength="24" placeholder="tu nombre" title="Tu nombre (se muestra junto a tu cursor)" />
+  </div>
+</header>
+
+<main id="wrap">
+  <canvas id="board"></canvas>
+  <div id="cursors"></div>
+  <div id="textInput" class="hidden">
+    <textarea id="textArea" rows="2" placeholder="Escribe y pulsa Enter (Shift+Enter = salto)"></textarea>
+  </div>
+  <div id="peers"></div>
+  <div id="hint">Rueda = paneo · Ctrl+rueda = zoom · Espacio+arrastrar = paneo · E = borrador</div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

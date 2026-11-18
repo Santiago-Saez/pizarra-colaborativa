@@ -1,0 +1,29 @@
+:root { --bg: #0f1115; --panel: #151a23; --line: #262c38; --txt: #e8ecf3; --mut: #9aa4b5; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--txt); font: 14px/1.4 system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden; }
+.topbar { display: flex; align-items: center; gap: 12px; padding: 8px 12px; background: var(--panel); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.brand { font-weight: 700; }
+.pill { font-size: 11px; border: 1px solid var(--line); border-radius: 20px; padding: 2px 9px; color: #8fd6a8; }
+.pill.off { color: #ff9d9d; }
+.pill.sync { color: #ffd479; }
+.tools, .props { display: flex; align-items: center; gap: 6px; }
+button { background: #222836; border: 1px solid var(--line); color: var(--txt); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+button:hover { border-color: #4f8cff; }
+.tool.active { background: #4f8cff; border-color: #4f8cff; color: #fff; }
+#zoomLbl { min-width: 48px; text-align: center; color: var(--mut); }
+.me { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+#name { background: #0f141c; color: var(--txt); border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px; width: 150px; }
+#color { width: 34px; height: 30px; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: #0f141c; }
+#wrap { position: relative; flex: 1; overflow: hidden; }
+#board { position: absolute; inset: 0; width: 100%; height: 100%; cursor: crosshair; touch-action: none; }
+#cursors { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.cursor { position: absolute; transform: translate(-2px, -2px); font-size: 12px; pointer-events: none; white-space: nowrap; transition: opacity .3s; }
+.cursor .arrow { font-size: 16px; }
+.cursor .tag { border-radius: 10px; padding: 1px 7px; color: #fff; font-weight: 600; margin-left: 8px; }
+#peers { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; }
+.peer { font-size: 12px; border-radius: 14px; padding: 3px 10px; color: #fff; font-weight: 600; }
+#hint { position: absolute; bottom: 8px; left: 10px; color: var(--mut); font-size: 12px; background: rgba(15,17,21,.7); padding: 3px 9px; border-radius: 8px; pointer-events: none; }
+#textInput { position: absolute; z-index: 5; }
+#textInput.hidden { display: none; }
+#textArea { background: #fff; color: #111; border: 2px solid #4f8cff; border-radius: 6px; padding: 6px; font-size: 16px; min-width: 180px; }
